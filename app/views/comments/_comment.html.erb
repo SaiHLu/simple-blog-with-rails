@@ -1,0 +1,13 @@
+<div class="box is-clearfix">
+  <article class="media">
+    <div class="medai-content">
+      <div class="content">
+        <p>
+          <strong><%= comment.name %>: </strong>
+          <%= comment.comment %>
+        </p>
+      </div>
+    </div>  
+  </article>
+  <%= link_to "Delete", [comment.post, comment], method: :delete, class: "is-pulled-right button is-danger", data: { confirm: "Are you sure?" } %>
+</div>

@@ -1,0 +1,53 @@
+<div class="section">
+  <div class="container">
+    <nav class="level">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>Actions</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- Right side -->
+  <div class="level-right">
+    <p class="level-item">
+      <%= link_to "Edit", edit_post_path(@post), class: "button"%>
+    </p>
+    <p class="level-item">
+    <%# Add Delete functionality %>
+      <%= link_to "Delete", post_path(@post), data: {confirm: "Are you sure?"},  class: "button is-danger", method: :delete %>
+    </p>
+  </div>
+  </nav>
+
+  <hr />
+
+    <div class="columns">
+      <div class="column">
+        <%= @post.title %>
+      </div>
+      <div class="column">
+        <%= @post.content %>
+      </div>
+    </div>  
+
+  </div>
+</div>
+
+<section class="section comments">
+  <div class="container">
+    <h2 class="subtitle is-5">
+      <strong><%= @post.comments.count %></strong>
+      Comments
+    </h2>
+
+    <%= render @post.comments %>
+    <div class="comment-form">
+      <hr />
+      <h3 class="subtitle is-3">Leave a reply</h3>
+      <%= render 'comments/form'%>
+    </div>
+  </div>
+</section>
